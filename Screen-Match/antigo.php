@@ -1,10 +1,10 @@
 <?php
 
-require __DIR__ . "/funcoes.php";
+require __DIR__ . "src/funcoes.php";
 
 echo "Bem-vindo(a) ao screen match!\n";
 
-$nomeFilme = "Top Gun - Maverick";
+$nome = "Top Gun - Maverick";
 
 $anoLancamento = 2022;
 
@@ -24,13 +24,13 @@ $planoPrime = true;
 
 $incluidoNoPlano = incluidoNoPlano($planoPrime, $anoLancamento);
 
-echo "Nome do filme: " . $nomeFilme . "\n";
+echo "Nome do filme: " . $nome . "\n";
 echo "Nota do filme: $notaFilme\n";
 echo "Ano de lançamento: $anoLancamento\n";
 
 exibeMensagemLancamento($anoLancamento);
 
-$genero = match ($nomeFilme) {
+$genero = match ($nome) {
     "Top Gun - Maverick" => "ação",
     "Thor: Ragnarok" => "super-herói",
     "Se beber não case" => "comédia",
@@ -39,13 +39,12 @@ $genero = match ($nomeFilme) {
 
 echo "O gênero do filme é: $genero\n";
 
-$filme = [
-    "nome" => "Thor: Ragnarok",
-    "ano" => 2021,
-    "nota" => 7.8,
-    "genero" => "super-herói",
-];
-
+$filme = criarFilme( 
+    "Thor: Ragnarok", 
+    2021,
+    7.8,
+    "super-herói"
+);
 
 echo $filme["ano"];
 
